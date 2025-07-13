@@ -68,9 +68,9 @@ async def clear_sticky(ctx):
     else:
         await ctx.send("⚠️ Không có sticky message trong kênh này.")
 
-@tasks.loop(seconds=30)
+@tasks.loop(seconds=75s)
 async def sticky_loop():
-    """Tự động gửi sticky mỗi 30 giây"""
+    """Tự động gửi sticky mỗi 75s giây"""
     for channel_id, data in sticky_messages.items():
         channel = bot.get_channel(channel_id)
         if channel:
